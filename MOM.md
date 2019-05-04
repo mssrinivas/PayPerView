@@ -1,10 +1,10 @@
 ## Meeting #1 - Brainstorming on Ideas
 
-        #### Date: 04/28/2019
-        #### Time: 2:30PM to 3:30PM
-        #### Place: Zoom (Online)
+#### Date: 04/28/2019
+#### Time: 2:30PM to 3:30PM
+#### Place: Zoom (Online)
         
-        ### Discussion:
+### Discussion:
         - Discussed various ideas to be implemented
         - Finalised the idea of Pay per view
         - Discussed various features to be implemented
