@@ -16,3 +16,20 @@
         - Present idea to professor for approval
         - Divide tasks amongs members
         - Implementation
+        
+## Meeting #2 - Review on Business Logic, discussion on UI and screen flows
+
+#### Date: 05/01/2019
+#### Time: 8PM to 11PM
+#### Place: Library
+
+### Discussion:
+        - Reviewed business logic for individual APIs
+        - Discussion on placement of UI components
+        - Discussion on screen flows between different modules
+        - Finalized implementation details for individual APIs
+  
+#### Future tasks:
+        - Unit Testing
+        - Merge different components 
+        - Regression Testing
