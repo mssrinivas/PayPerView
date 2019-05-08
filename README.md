@@ -19,7 +19,7 @@
 [Google Sheet]()  
 
 ## Scrum Task Board and Burndown Chart
-[Scrum Board]()
+[Scrum Board](https://docs.google.com/spreadsheets/d/1offNMxuuoS-hDteZ4yqdi-BdiLFaN1DewzrwTQoaQ8E/edit?ts=5cd26a3c#gid=0)
 
 ## Architectural Overview ()
 ![Architectural Overview]()
