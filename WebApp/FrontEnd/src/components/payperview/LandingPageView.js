@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import CruzCard from './card.js';
 import axios from 'axios';
-import './LandingPageView.css';
+// import './LandingPageView.css';
 
 
 class LandingPageView extends Component {
@@ -33,18 +33,18 @@ class LandingPageView extends Component {
 
     render() { 
 
-        let NAVLOGIN = (<li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle lower backwhite" href="Dashboard" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {"My Account"}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item " href="#">Profile</a>
-            <a class="dropdown-item" href="/">Purchases</a>
-            <a class="dropdown-item" href="/">Billing</a>
-            <a class="dropdown-item" href="#">Log Out</a>
-            <a class="dropdown-item" onClick={this.handleLogout} href="/" >Logout</a>
+        let NAVLOGIN = (<div className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Account
+        </button>
+        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item " >Profile</a>
+            <a className="dropdown-item" >Purchases</a>
+            <a className="dropdown-item" >Billing</a>
+            <a className="dropdown-item" >Log Out</a>
+            <a className="dropdown-item" onClick={this.handleLogout} >Logout</a>
         </div>
-</li>)
+</div>)
         
 
         return (
@@ -72,8 +72,10 @@ class LandingPageView extends Component {
                                 {NAVLOGIN}
                                 </ul>
                                 </div>
+                                
                                 </div>
                             </div>
+
                          </nav>
                             <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">

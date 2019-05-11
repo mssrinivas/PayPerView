@@ -59,17 +59,24 @@ router.post('/user/setProfile', urlencodedParser, function(req, res){
 
 router.post('/user/addCard', urlencodedParser, function(req, res){
     console.log("In add card");
+    console.log(req.body);
     var email = req.body.email;
-    var cardId = parseInt(req.body.cardId);
-    var code = parseInt(req.body.cardCode);
+    var cardId = parseInt(req.body.cardId, 10);
+    var code = parseInt(req.body.cardCode, 10);
     var expDate = req.body.expirationDate;
-    Users.update({
+    Users.updateOne({
         email: email
-    }, {$set: {cards: {
-        cardId: cardId,
-        cardCode: code,
-        expiration_date: expDate
-    }}})
+    }, {$set: {
+        "cards.card_id": cardId,
+        "cards.card_code": code,
+        "cards.expiration_date": expDate
+    }})
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 })
 
 module.exports = router;
