@@ -4,14 +4,11 @@ import {BrowserRouter} from 'react-router-dom';
 import Main from './components/main.js';
 
 
-
-
-
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-	<Main />
+        	<Main />
       </BrowserRouter>
     );
   }
