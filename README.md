@@ -29,13 +29,37 @@ https://github.com/mssrinivas/PayPerView/projects/1
 ## Architectural Overview ()
 ![Screenshot from 2019-05-10 23-02-02](https://user-images.githubusercontent.com/42705784/57565759-10678400-7378-11e9-971c-be98052f88cb.png)
 
-
 ## Application Modules / Screens
 
 -  Login / SignUp screen 
 -  Landing Page / Service listing screen
 -  Add to cart / Payments screen
 -  User profile screen
+
+
+## Screen Flows
+
+### Login
+![Alt text](ScreenShots/Login.png?raw=true "Login Page")
+
+## Sign Up
+![Alt text](ScreenShots/SignUp.png?raw=true "Sign Up Page")
+
+## User Account
+![Alt text](ScreenShots/User_Profile.png?raw=true "User Account Page")
+
+## Companies
+![Alt text](ScreenShots/Companies.png?raw=true "Companies Page")
+
+## Interviews
+![Alt text](ScreenShots/Interviews.png?raw=true "Interviews Page")
+
+## Salaries
+![Alt text](ScreenShots/Salary.png?raw=true "Salary Page")
+
+## Jobs
+![Alt text](ScreenShots/Jobs.png?raw=true "Jobs Page")
+
 
 
 
