@@ -4,8 +4,8 @@ var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 var Payments = require('../models/payments');
 
-router.post('/user/Payments/', urlencodedParser,async function(req, res){
-    
+router.post('/user/Payments', urlencodedParser,async function(req, res){
+    console.log("Came here")
     var user_id = req.body.user_id;
     console.log(req.body.email)
     console.log('in paymnets')
