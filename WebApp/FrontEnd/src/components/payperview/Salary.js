@@ -91,37 +91,25 @@ class Salary extends Component {
                                                 <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
                                                 <Link to="#" className="card-link">Overview</Link>
                                                 </div>
-                                                </div>
-                                            
-                                            
-                         
+                                                </div>                                                                   
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
                                                 <p>49</p>
                                                 <Link to="#" className="card-link">Reviews</Link>
                                                 </div>
                                                 </div>
-                                            
-                                            
-                                            
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
                                                 <p>167</p>
                                                 <Link to="#" className="card-link">Jobs</Link>
                                                 </div>
                                                 </div>
-                                            
-                                            
-                                            
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
                                                 <p>223</p>
                                                 <Link to="#" className="card-link">Salaries</Link>
                                                 </div>
                                                 </div>
-                                            
-                                            
-                                            
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
                                                 <p>315</p>
