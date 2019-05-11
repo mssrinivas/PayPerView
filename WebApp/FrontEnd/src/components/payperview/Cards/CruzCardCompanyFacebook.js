@@ -45,20 +45,18 @@ class CruzCardCompanyFacebook extends Component {
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
     
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                        <h5>About</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
+                            Facebook is one of the social media giants. People at Facebook work in small teams and move fast to develop new products, constantly iterating.
+                        </p>
+                        <h5>Headquarters</h5>
                         <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                            Facebook is headquartered at Menlo Park in California
+                        </p>
+                        <h5>Industry</h5>
+                        <p>
+                            Facebook is one of the leaders in the internet space particularly in social media domain
+                        </p>
                     </div>
                 </div>
                 {button}
