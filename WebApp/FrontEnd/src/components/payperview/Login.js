@@ -3,6 +3,7 @@ import './Login.css';
 import { Container, Row, Col, Button, Fa, Card, CardBody, ModalFooter } from 'mdbreact';
 import {Redirect} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import { decode } from 'punycode';
 
 class Login extends React.Component {
   constructor(props) {
@@ -24,12 +25,12 @@ class Login extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:4004/login', {
+    fetch('http://localhost:4004/user/login', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',
       body: JSON.stringify({
-      username: this.state.signInEmail,
+      email: this.state.signInEmail,
       password: this.state.signInPassword
       })
     })
@@ -43,14 +44,16 @@ class Login extends React.Component {
         {
          response.json()
           .then(user => {
-         var decoded = jwtDecode(user);
-              var accounttype = decoded.user.type;
-              var userone = decoded.user._id;
-              console.log("ACC - " + accounttype)
-              console.log("USER", userone)
-              localStorage.setItem("ACCOUNTTYPE", accounttype);
-                console.log("NAME - " + userone)
-                this.props.loadUser(userone);
+            console.log("Received jwt token" );
+            console.log(user);
+         var decoded = jwtDecode(user.token);
+         console.log(decoded);
+              var useremail = decoded.user.email;
+              // var userone = decoded.user._id;
+              console.log("EMAIL - " + useremail)
+              // console.log("USER", userone)
+              localStorage.setItem("email", useremail);
+             //   this.props.loadUser(userone);
                 this.setState({Redirection_Value : true})
         })
       }
@@ -63,7 +66,7 @@ class Login extends React.Component {
     let Errors = null;
     if(this.state.Redirection_Value === true)
     {
-     Redirecty =  <Redirect to="/home" />
+     Redirecty =  <Redirect to="/useraccount" />
     }
     if(this.state.errors === true)
     {
@@ -89,7 +92,7 @@ class Login extends React.Component {
                     <h3 className="dark-grey-text mb-5">Account Login</h3>
                     <hr></hr>
                   </div>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"  onChange={this.onEmailChange} required/>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email ID"  onChange={this.onEmailChange} required/>
                   <br>
                   </br>
                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  onChange={this.onPasswordChange} required/>

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import CruzCard from './card.js';
+import CruzCard from './Cards/card.js';
 import axios from 'axios';
 import './Jobs.css';
 
+import CruzCardJobAmazon from './Cards/CruzCardJobAmazon';
+import CruzCardJobFacebook from  './Cards/CruzCardJobFacebook';
+import CruzCardJobLinkedIn from './Cards/CruzCardJobLinkedIn';
+import CruzCardJobNetflix from './Cards/CruzCardJobNetflix';
+import CruzCardJobGoogle from './Cards/CruzCardJobGoogle';
 
 class Jobs extends Component {
     
@@ -60,7 +65,7 @@ class Jobs extends Component {
                             <a className="nav-link" style={{color:'black'}} href="/payperview/jobs">Jobs</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/companies">Companies</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/salary">Salary</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a className="nav-link" style={{color:'black'}} href="/payperview/interviews">Interviews</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/payperview/Jobs">Jobs</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                         <form className="form-inline my-2 my-lg-0 mr-auto">
                             <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
@@ -75,98 +80,30 @@ class Jobs extends Component {
                                 </div>
                             </div>
                          </nav>
-                            <div className="row mt-3 mb-1 justify-content-center" >
-                                <div className="col col-md-10">
-                                    <h2>Netflix</h2>
-                                        <div style={{display:'flex'}}>
-                                        
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
-                                                <Link to="#" className="card-link">Overview</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                         
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>40</p>
-                                                <Link to="#" className="card-link">Reviews</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>167</p>
-                                                <Link to="#" className="card-link">Jobs</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>223</p>
-                                                <Link to="#" className="card-link">Salaries</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>315</p>
-                                                <Link to="#" className="card-link">Interviews</Link>
-                                                </div>
-                                                </div>
-                                            
-
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>69</p>
-                                                <Link to="#" className="card-link">Benefits</Link>
-                                                </div>
-                                                </div>
-                                            
-
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>60</p>
-                                                <Link to="#" className="card-link">Photos</Link>
-                                                </div>
-                                                </div>
-                                            
-                                        
-                                        </div>
-                                        
-		</div>
-                                </div>
-                                <div className="row mt-2 mb-2 justify-content-center">
-                                    <div className="col-md-10">
-                                        <h4>Candidate Reviews for Top Jobs at Netflix</h4>
-                                    </div>
-                                </div>
-
-                                
-
-                                <CruzCard paid={true}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-
-                                
-
-
-                            </div>
+                                <CruzCardJobNetflix paid={true}/> 
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobFacebook paid={true}/>
+                                <CruzCardJobFacebook paid={true}/>
+                                <CruzCardJobNetflix paid={true}/> 
+                                <CruzCardJobFacebook paid={true}/>
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobAmazon paid={true}/> 
+                                <CruzCardJobLinkedIn paid={true} onSubscribe={this.subscribe}/>
+                                <CruzCardJobAmazon paid={true}/> 
+                                <CruzCardJobFacebook paid={true}/>
+                                <CruzCardJobNetflix paid={true}/> 
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobFacebook paid={true}/>
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobAmazon paid={true}/> 
+                                <CruzCardJobAmazon paid={true}/> 
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobFacebook paid={true}/>
+                    </div>
 
 
         );
     }
 }
-
 
 export default Jobs;

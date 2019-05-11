@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import CruzCard from './card.js';
+import CruzCard from './Cards/card.js';
 import axios from 'axios';
 import './Interview.css';
+import CruzCardInterviewAmazon from './Cards/CruzCardInterviewAmazon';
+import CruzCardInterviewFacebook from './Cards/CruzCardInterviewFacebook';
+import CruzCardInterviewGoogle from './Cards/CruzCardInterviewGoogle';
+import CruzCardInterviewLinkedIn from './Cards/CruzCardInterviewLinkedIn';
+import CruzCardInterviewNetflix from './Cards/CruzCardInterviewNetflix';
 
 
 class Interview extends Component {
@@ -75,98 +80,31 @@ class Interview extends Component {
                                 </div>
                             </div>
                          </nav>
-                            <div className="row mt-3 mb-1 justify-content-center" >
-                                <div className="col col-md-10">
-                                    <h2>Netflix</h2>
-                                        <div style={{display:'flex'}}>
-                                        
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
-                                                <Link to="#" className="card-link">Overview</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                         
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>40</p>
-                                                <Link to="#" className="card-link">Reviews</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>167</p>
-                                                <Link to="#" className="card-link">Jobs</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>223</p>
-                                                <Link to="#" className="card-link">Salaries</Link>
-                                                </div>
-                                                </div>
-                                            
-                                            
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>315</p>
-                                                <Link to="#" className="card-link">Interviews</Link>
-                                                </div>
-                                                </div>
-                                            
 
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>69</p>
-                                                <Link to="#" className="card-link">Benefits</Link>
-                                                </div>
-                                                </div>
-                                            
-
-                                            
-                                                <div className="card overview-border" style={{width: '10rem'}}>
-                                                <div className="card-body">
-                                                <p>60</p>
-                                                <Link to="#" className="card-link">Photos</Link>
-                                                </div>
-                                                </div>
-                                            
-                                        
-                                        </div>
-                                        
-		</div>
-                                </div>
-                                <div className="row mt-2 mb-2 justify-content-center">
-                                    <div className="col-md-10">
-                                        <h4>Candidate Reviews for Top Jobs at Netflix</h4>
-                                    </div>
-                                </div>
-
-                                
-
-                                <CruzCard paid={true}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-
-                                
-
-
+                                <CruzCardInterviewNetflix paid={true}/> 
+                                <CruzCardInterviewGoogle paid={true}/>
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
+                                <CruzCardInterviewNetflix paid={true}/> 
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
+                                <CruzCardInterviewGoogle paid={true}/>
+                                <CruzCardInterviewAmazon paid={true}/> 
+                                <CruzCardInterviewLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardInterviewAmazon paid={true}/> 
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
+                                <CruzCardInterviewNetflix paid={true}/> 
+                                <CruzCardInterviewGoogle paid={true}/>
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
+                                <CruzCardInterviewGoogle paid={true}/>
+                                <CruzCardInterviewAmazon paid={true}/> 
+                                <CruzCardInterviewAmazon paid={true}/> 
+                                <CruzCardInterviewGoogle paid={true}/>
+                                <CruzCardInterviewFacebook paid={this.state.subscribed}/>
                             </div>
 
 
         );
     }
 }
-
 
 export default Interview;

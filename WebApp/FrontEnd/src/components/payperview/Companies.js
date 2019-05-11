@@ -3,16 +3,15 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import CruzCard from './Cards/card.js';
 import axios from 'axios';
-import './Salary.css';
+import './Companies.css';
 
-import CruzCardSalaryAmazon from './Cards/CruzCardSalaryAmazon';
-import CruzCardSalaryFacebook from './Cards/CruzCardSalaryFacebook';
-import CruzCardSalaryGoogle from './Cards/CruzCardSalaryGoogle';
-import CruzCardSalaryLinkedIn from './Cards/CruzCardSalaryLinkedIn';
-import CruzCardSalaryNetflix from './Cards/CruzCardSalaryNetflix';
+import CruzCardCompanyAmazon from './Cards/CruzCardCompanyAmazon';
+import CruzCardCompanyFacebook from './Cards/CruzCardCompanyFacebook';
+import CruzCardCompanyGoogle from './Cards/CruzCardCompanyGoogle';
+import CruzCardCompanyLinkedIn from './Cards/CruzCardCompanyLinkedIn';
+import CruzCardCompanyNetflix from './Cards/CruzCardCompanyNetflix';
 
-
-class Salary extends Component {
+class Companies extends Component {
     
     constructor(props){
         super(props);
@@ -81,7 +80,8 @@ class Salary extends Component {
                                 </div>
                             </div>
                          </nav>
-                         <div className="row mt-3 mb-1 justify-content-center" >
+
+                          <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Google</h2>
                                         <div style={{display:'flex'}}>
@@ -97,7 +97,7 @@ class Salary extends Component {
                          
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
-                                                <p>49</p>
+                                                <p>40</p>
                                                 <Link to="#" className="card-link">Reviews</Link>
                                                 </div>
                                                 </div>
@@ -154,7 +154,7 @@ class Salary extends Component {
                                 </div>
 
                            
-                                <CruzCardSalaryGoogle paid={true}/>
+                                <CruzCardCompanyGoogle paid={true}/>
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Facebook</h2>
@@ -226,7 +226,7 @@ class Salary extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardSalaryFacebook paid={this.state.subscribed}/>
+                                <CruzCardCompanyFacebook paid={this.state.subscribed}/>
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Amazon</h2>
@@ -298,7 +298,7 @@ class Salary extends Component {
                                         
 		</div>
                                 </div> 
-                                <CruzCardSalaryAmazon paid={true}/> 
+                                <CruzCardCompanyAmazon paid={true}/> 
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>LinkedIn</h2>
@@ -370,7 +370,7 @@ class Salary extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardSalaryLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardCompanyLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Netflix</h2>
@@ -442,11 +442,13 @@ class Salary extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardSalaryNetflix paid={true}/> 
+                                <CruzCardCompanyNetflix paid={true}/> 
                             </div>
+
+
         );
     }
 }
 
 
-export default Salary;
+export default Companies;
