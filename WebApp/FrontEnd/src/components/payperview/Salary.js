@@ -3,10 +3,10 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import CruzCard from './card.js';
 import axios from 'axios';
-import './LandingPageView.css';
+import './Salary.css';
 
 
-class LandingPageView extends Component {
+class Salary extends Component {
     
     constructor(props){
         super(props);
@@ -169,4 +169,4 @@ class LandingPageView extends Component {
 }
 
 
-export default LandingPageView;
+export default Salary;

@@ -9,13 +9,13 @@ var profile = require('./src/routes/profile')
 
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use('/static',express.static(__dirname + 'public'));
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 // var sessionStore = new MySQLStore(config);
-var sessionStore = new MongoDBStore({
-  uri: 'mongodb://cmpe202:cmpe202@ds155086.mlab.com:55086/payperview',
-  collection: 'p_sessions'
-});
+//'var sessionStore = new MongoDBStore({
+ // uri: 'mongodb://cmpe202:cmpe202@ds155086.mlab.com:55086/payperview',
+//  collection: 'p_sessions'
+//});
 
 app.use(session({
   secret: "Iamsupersecretsecret",
@@ -27,7 +27,7 @@ app.use(session({
         maxAge: 1000* 60 * 60 *24 * 365,
         expires : 3600000 * 24 * 60
 },
-store: sessionStore
+//store: sessionStore
 }));
 
 app.use(bodyParser.json());
@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
   });
 
 
-app.use('', profile);
+app.use('/', profile);
 
 app.listen(8000);
 console.log("Server listening on port 8000");
