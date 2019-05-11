@@ -1,7 +1,7 @@
 # Hate going premium? - Go Pay-Per-View 
 ## Application Overview
 
-This project introduces a new concept called "Pay Per View" using the concept of micropayments. The idea is about instead of forcing a user to take a complete subscription of organization's or an application's premium services where user is only interested in subset of the services. Instead user will be charged only for the services he wants to consume.
+This project introduces a new concept called "Pay Per View" using the concept of micropayments. The idea is about instead of forcing a user to take a complete subscription of organization's or an application's premium services where user is only interested in subset of the services. Instead user will be charged only for the services he/she wants to consume.
 
 Extension to the current applications
 Earlier micro payments were not a rage because of transaction cost attached to it, which affets the organizations revenue or an individual. But after the introduction of Online wallet and crypto currency the concept of micropayments has become easy.
