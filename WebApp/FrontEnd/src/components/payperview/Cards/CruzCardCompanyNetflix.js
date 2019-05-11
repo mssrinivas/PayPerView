@@ -45,20 +45,18 @@ class CruzCardCompanyNetflix extends Component {
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
     
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                        <h5>About</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
+                            Netflix is one of the leaders in internet entertainment industry across the world. Members can watch as much as they want, anytime, anywhere, on any internet-connected screen. Members can play, pause and resume watching, all without commercials or commitments.
+                        </p>
+                        <h5>Headquarters</h5>
                         <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                            Netflix is headquartered at Los Gatos in California
+                        </p>
+                        <h5>Industry</h5>
+                        <p>
+                            Netflix is one of the leaders in internet entertainment domain.
+                        </p>
                     </div>
                 </div>
                 {button}

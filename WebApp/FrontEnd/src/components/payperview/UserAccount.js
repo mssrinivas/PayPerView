@@ -82,15 +82,23 @@ class UserAccount extends Component {
   }
 
   onCardIdChange = (event) => {
-    this.setState({"cards.cardId": event.target.value})
+    var temp = {...this.state.cards};
+    temp.cardId = event.target.value;
+    this.setState({cards: temp})
   }
 
   onCardCodeChange = (event) => {
-    this.setState({"cards.cardCode": event.target.value})
+    var temp = {...this.state.cards};
+    temp.cardCode = event.target.value;
+    this.setState({cards: temp})
+    
   }
 
   onExpDateChange = (event) => {
-    this.setState({"cards.expirationDate": event.target.value})
+    var temp = {...this.state.cards};
+    temp.expirationDate = event.target.value;
+    this.setState({cards: temp})
+    
   }
 
   onHometownChange = (event) => {
@@ -105,10 +113,11 @@ class UserAccount extends Component {
       credentials : 'include',
       body: JSON.stringify({
        email: localStorage.getItem('email'),
-       carId: this.state.carId,
-       cardCode: this.state.cardCode,
-       expirationDate: this.state.expirationDate,
+       cardId: this.state.cards.cardId,
+       cardCode: this.state.cards.cardCode,
+       expirationDate: this.state.cards.expirationDate,
       })
+      
     })
     .then(response =>  response.json())
     .then(card => {
@@ -216,7 +225,9 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
 	render ()
 	{
 		return (
+      
   <div class="accountinfo">
+  
 <div class="container shadowingcontainertraveller">
   <h1 class="page-header">Profile information</h1>
   <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Card</button>

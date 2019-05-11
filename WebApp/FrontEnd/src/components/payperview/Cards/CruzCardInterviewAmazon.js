@@ -45,20 +45,14 @@ class CruzCardInterviewAmazon extends Component {
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
     
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                        <h5>Position Name</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
+                            Software Engineer II
+                        </p>
+                        <h5>Interview</h5>
                         <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                        Met a number of people on the team and they seemed terrific. Phone and in person. They wanted to understand what I'd done in the past and how I would approach the project.
+                        </p>
                     </div>
                 </div>
                 {button}
