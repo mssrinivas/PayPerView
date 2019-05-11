@@ -44,21 +44,19 @@ class CruzCardJobFacebook extends Component {
                         
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
-    
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                        
+                        <h5>Intern Positions</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
+                            Software Engineer Intern
+                            Supply chain analyst Intern
+                            Product manager Intern
+                        </p>
+                        <h5>Full-time roles</h5>
                         <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                            Sales representative
+                            Senior Product manager
+                            Director of Engineering
+                        </p>
                     </div>
                 </div>
                 {button}

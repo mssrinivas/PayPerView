@@ -46,20 +46,13 @@ class CruzCardSalaryGoogle extends Component {
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
     
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                      
+                          <h5>Salaries at google</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
-                        <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                            Site Reliability Engineer 110,000$/yr
+                            Product Manager 98,000$/yr
+                            Analyst 100,000$/yr
+                        </p>
                     </div>
                 </div>
                 {button}

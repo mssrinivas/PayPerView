@@ -45,20 +45,15 @@ class CruzCardInterviewNetflix extends Component {
                     </div>
                     <div className="col-md-9 mt-2 mb-2">
     
-                        <ul className="list-inline mr-auto">
-                            <li className="list-inline-item"><a className="text-xs-center" target="_blank" href="#">Overview</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">No Offer</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Bad Experience</a></li>
-                            <li className="list-inline-item"><a className="text-xs-center" href="#">Average Interview</a></li>
-                        </ul>
-                        <h5>Pros</h5>
+                     
+                        <h5>Position Name</h5>
                         <p>
-
-                            Innovative Product/Platform company. Please love working for this company, and want to be associated to Netflix, as it is one of the fastest growing company in the Streaming industry.</p>
-                        <h5>Cons</h5>
+                            Senior Infrastructure Engineer
+                        </p>
+                        <h5>Interview</h5>
                         <p>
-
-                            No free lunches like many Bay Area Companies</p>
+                            Applied online. Received an email one week later scheduling phone interview. Phone interview lasted twenty minutes. Interviewer commented that I did not have enough experience for the position. Did not receive any further communication from the company.
+                        </p>
                     </div>
                 </div>
                 {button}
