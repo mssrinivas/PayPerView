@@ -4,6 +4,8 @@ var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 var bcrypt = require('bcryptjs');
 var Users = require('../models/users');
+const jwt = require('jsonwebtoken');
+const jwtkey = require('../../config/keys');
 
 router.post('/user/signup/', urlencodedParser, function(req, res){
     console.log("Inside sign up" + req.body.name)
@@ -51,6 +53,7 @@ router.post('/user/login/', urlencodedParser, function(req, res){
             bcrypt.compare(req.body.password, user.password, function(err, results) {
                 console.log('User pwd ', req.body.password)
                 console.log('Pwd in Database ', user.password)
+                console.log("results" + results);
          if(results){
     /*         res.writeHead(200,{
                 'Content-Type' : 'application-json'
