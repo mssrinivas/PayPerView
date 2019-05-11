@@ -3,6 +3,7 @@ var router = express.Router();
 var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 var Users = require('../models/users');
+var Payments = require('../models/payments')
 
 router.get('/user/getProfile/:email', urlencodedParser, function(req, res){
     
@@ -72,7 +73,18 @@ router.post('/user/addCard', urlencodedParser, function(req, res){
         "cards.expiration_date": expDate
     }})
     .then((result) => {
-        console.log(result)
+        var payment = new Payments({
+            email: email,
+            card_nbr: cardId,
+            card_bal: 100
+        })
+        payment.save()
+        .then((result) => 
+        {console.log(result)}
+        )
+        .catch((error) => {
+            console.log(error)
+        })
     })
     .catch((error) => {
         console.log(error)
