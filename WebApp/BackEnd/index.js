@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 
 app.use('', profile);
 app.use('', payments)
+app.use('/', profile);
 
 app.listen(8000);
 console.log("Server listening on port 8000");
