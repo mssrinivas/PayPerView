@@ -74,4 +74,23 @@ router.post('/user/login/', urlencodedParser, function(req, res){
     })
 })
 
+router.get('/user/ping', urlencodedParser, function(req, res){
+    console.log("Inside ping");
+    // var salt = bcrypt.genSaltSync(10);
+    // var encryptedpassword = bcrypt.hashSync(req.body.password, salt);
+    // var user = new Users({
+    //     email : req.body.email,
+    //     password : encryptedpassword,
+    //     name : req.body.name,
+    // })
+
+    // user.save().then((user) => {
+    //     console.log("User : " + user);
+    //     res.code = "200";
+    //     res.sendStatus(200).end();
+    // },(err) =>{
+        res.sendStatus(200).end();
+    // })
+})
+
 module.exports = router;
