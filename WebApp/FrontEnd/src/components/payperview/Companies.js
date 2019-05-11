@@ -22,14 +22,22 @@ class Companies extends Component {
             subscribedtoNetflix:true,
             subscribedtoLinkedIn:false
         }
-
         this.subscribe = this.subscribe.bind(this)
     }
 
     subscribe = (e)=>{
          console.log(e.target.value)
-        const url=BASE_URL+'/Payments'
-        axios.post(url).then((response)=>{
+        const url=BASE_URL+'/user/Payments/'
+        fetch(url, {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            credentials : 'include',
+            body: JSON.stringify({
+              email : window.localStorage.getItem("email")
+            })
+          })
+          .then(response => {
+            console.log(response)
             if(response.status===200){
                 const balance = response.data.balance;
                 if(e.target.value === "Google")
@@ -42,7 +50,7 @@ class Companies extends Component {
                     this.setState({subscribedtoNetflix:true})
                 else if(e.target.value === "Amazon")
                     this.setState({subscribedtoAmazon:true})
-            }else{this.setState({subscribed:true})
+            }else{
                 alert("Payment Unsuccessful")
             }
         })

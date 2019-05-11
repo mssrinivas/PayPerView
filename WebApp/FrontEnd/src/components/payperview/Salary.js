@@ -28,8 +28,7 @@ class Salary extends Component {
 
     subscribe = (e)=>{
          console.log(e.target.value)
-         this.setState({subscribedtoGoogle:true})
-        const url=BASE_URL + '/Payments'
+        const url=BASE_URL + '/user/Payments'
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;
@@ -43,7 +42,8 @@ class Salary extends Component {
                     this.setState({subscribedtoNetflix:true})
                 else if(e.target.value === "Amazon")
                     this.setState({subscribedtoAmazon:true})
-            }else{this.setState({subscribed:true})
+            }else{
+                this.setState({subscribed:true})
                 alert("Payment Unsuccessful")
             }
         })

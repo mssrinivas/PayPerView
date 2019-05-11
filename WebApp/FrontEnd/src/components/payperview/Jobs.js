@@ -22,7 +22,7 @@ class Jobs extends Component {
     }
 
     subscribe = (e)=>{
-        const url=BASE_URL + '/Payments'
+        const url=BASE_URL + '/user/Payments'
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;

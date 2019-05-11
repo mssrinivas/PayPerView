@@ -24,6 +24,7 @@ router.post('/user/signup/', urlencodedParser, function(req, res){
     },(err) =>{
         res.sendStatus(400).end();
     })
+    
 })
 
 router.post('/user/login/', urlencodedParser, function(req, res){
