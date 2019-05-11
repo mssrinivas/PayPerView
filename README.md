@@ -16,7 +16,7 @@
 [Hansraj - BackEnd, AWS Deployment, Dockerize](https://github.com/mssrinivas/PayPerView/blob/master/Project%20Research/Hansraj_Research.md) 
 
 ## Kanban Flow Diagram
-[Google Sheet]()  
+https://github.com/mssrinivas/PayPerView/projects/1 
 
 ## Scrum Task Board and Burndown Chart
 [Scrum Board](https://docs.google.com/spreadsheets/d/1offNMxuuoS-hDteZ4yqdi-BdiLFaN1DewzrwTQoaQ8E/edit?ts=5cd26a3c#gid=0)
