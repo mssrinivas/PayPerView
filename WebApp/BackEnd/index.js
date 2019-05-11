@@ -6,29 +6,30 @@ var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var mongoose = require('./src/resources/mongoose');
 var profile = require('./src/routes/profile')
+var payments = require('./src/routes/payments')
 
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use('/static',express.static(__dirname + 'public'));
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 // var sessionStore = new MySQLStore(config);
-var sessionStore = new MongoDBStore({
-  uri: 'mongodb://cmpe202:cmpe202@ds155086.mlab.com:55086/payperview',
-  collection: 'p_sessions'
-});
+// var sessionStore = new MongoDBStore({
+//   uri: 'mongodb://cmpe202:cmpe202@ds155086.mlab.com:55086/payperview',
+//   collection: 'p_sessions'
+// });
 
-app.use(session({
-  secret: "Iamsupersecretsecret",
-  resave: false,
-  saveUninitialized: false,
-  duration: 600000000000 * 60 * 1000,
-  activeDuration: 6 * 60 * 60 * 1000,
-   cookie : {
-        maxAge: 1000* 60 * 60 *24 * 365,
-        expires : 3600000 * 24 * 60
-},
-store: sessionStore
-}));
+// app.use(session({
+//   secret: "Iamsupersecretsecret",
+//   resave: false,
+//   saveUninitialized: false,
+//   duration: 600000000000 * 60 * 1000,
+//   activeDuration: 6 * 60 * 60 * 1000,
+//    cookie : {
+//         maxAge: 1000* 60 * 60 *24 * 365,
+//         expires : 3600000 * 24 * 60
+// },
+// store: sessionStore
+// }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -45,6 +46,7 @@ app.use(function(req, res, next) {
 
 
 app.use('', profile);
+app.use('', payments)
 
 app.listen(8000);
 console.log("Server listening on port 8000");
