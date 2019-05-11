@@ -33,22 +33,24 @@ class Companies extends Component {
             headers: {'Content-Type': 'application/json'},
             credentials : 'include',
             body: JSON.stringify({
-              email : window.localStorage.getItem("email")
+                email : window.localStorage.getItem("email"),
+                amt_to_be_deducted : 0.5
             })
           })
           .then(response => {
             console.log(response)
             if(response.status===200){
-                const balance = response.data.balance;
-                if(e.target.value === "Google")
+                //const balance = response.data.balance;
+                var company = window.localStorage.getItem("CurrentCompany")
+                if(company=== "Google")
                     this.setState({subscribedtoGoogle:true})
-                else if(e.target.value === "Facebook")
+                else if(company === "Facebook")
                     this.setState({subscribedtoFacebook:true})
-                else if(e.target.value === "LinkedIn")
+                else if(company === "LinkedIn")
                      this.setState({subscribedtoLinkedIn:true})
-                else if(e.target.value === "Netflix")
+                else if(company === "Netflix")
                     this.setState({subscribedtoNetflix:true})
-                else if(e.target.value === "Amazon")
+                else if(company === "Amazon")
                     this.setState({subscribedtoAmazon:true})
             }else{
                 alert("Payment Unsuccessful")
@@ -56,6 +58,12 @@ class Companies extends Component {
         })
     }
 
+
+    CaptureCompany = (e) => 
+    {
+        console.log("VALUE oF Current COmpany", e.target.value)
+        window.localStorage.setItem("CurrentCompany",e.target.value)
+    }
     render() { 
         let NAVLOGIN = (<li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle lower backwhite" href="Dashboard" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,7 +91,7 @@ let BUTTONFORNETFLIX="";
          BUTTONFORGOOGLE=
          <div>
              <div className="row justify-content-center mb-2 mt-2">
-             <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Google">View</button></div>
+         <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.CaptureCompany} value="Google">View</button></div>
          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
            <div class="modal-content">
@@ -117,7 +125,7 @@ let BUTTONFORNETFLIX="";
         BUTTONFORFACEBOOK=
         <div>
         <div className="row justify-content-center mb-2 mt-2">
-        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Facebook">View</button></div>
+        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.CaptureCompany} value="Facebook">View</button></div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -151,7 +159,7 @@ let BUTTONFORNETFLIX="";
        BUTTONFORAMAZON=
        <div>
        <div className="row justify-content-center mb-2 mt-2">
-       <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Amazon">View</button></div>
+       <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.CaptureCompany} value="Amazon">View</button></div>
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
@@ -185,7 +193,7 @@ let BUTTONFORNETFLIX="";
         BUTTONFORLINKEDIN=
         <div>
         <div className="row justify-content-center mb-2 mt-2">
-        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="LinkedIn">View</button></div>
+        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.CaptureCompany} value="LinkedIn">View</button></div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -219,7 +227,7 @@ let BUTTONFORNETFLIX="";
          BUTTONFORNETFLIX=
          <div>
          <div className="row justify-content-center mb-2 mt-2">
-         <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Netflix">View</button></div>
+         <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.CaptureCompany} value="Netflix">View</button></div>
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
