@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
+var bcrypt = require('bcryptjs');
 var Users = require('../models/users');
 
-router.post('/api/signup/', urlencodedParser, function(req, res){
-    console.log("Inside sign up")
+router.post('/user/signup/', urlencodedParser, function(req, res){
+    console.log("Inside sign up" + req.body.name)
     var salt = bcrypt.genSaltSync(10);
     var encryptedpassword = bcrypt.hashSync(req.body.password, salt);
     var user = new Users({
-        email : req.bnody.emailid,
+        email : req.body.email,
         password : encryptedpassword,
         name : req.body.name,
     })
@@ -23,7 +24,7 @@ router.post('/api/signup/', urlencodedParser, function(req, res){
     })
 })
 
-router.post('/api/login/', urlencodedParser, function(req, res){
+router.post('/user/login/', urlencodedParser, function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     console.log("Email ID:",email + " password:",password);

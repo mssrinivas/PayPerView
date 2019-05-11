@@ -5,14 +5,14 @@ import {Redirect} from 'react-router-dom';
 
 import jwtDecode from 'jwt-decode';
 
-const URL="http://localhost:4004"
+const URL="http://localhost:4004/user"
 
 class SignUp extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // Userid : '',
+      Userid : '',
       PrimaryEmail : '',
       Password: '',
       // UserType : '',
@@ -21,9 +21,9 @@ class SignUp extends React.Component {
     }
   }
 
-  // onUseridChange = (event) => {
-  //   this.setState({Userid: event.target.value})
-  // }
+  onUseridChange = (event) => {
+    this.setState({Userid: event.target.value})
+  }
 
 
   onPrimaryEmailChange = (event) => {
@@ -44,7 +44,7 @@ class SignUp extends React.Component {
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',
       body: JSON.stringify({
-        // firstname: this.state.Userid,
+        name: this.state.Userid,
         // usertype: this.state.UserType,
         password: this.state.Password,
         email : this.state.PrimaryEmail
@@ -57,18 +57,9 @@ class SignUp extends React.Component {
         }
       else
         {
-          response.json()
-          .then(user => {
-         var decoded = jwtDecode(user);
-              var accounttype = decoded.user.type;
-              var userone = decoded.user._id;
-              console.log("ACC - " + accounttype)
-              console.log("USER", userone)
-              localStorage.setItem("ACCOUNTTYPE", accounttype);
-                console.log("NAME - " + userone)
-                this.props.loadUser(this.state.Userid);
-                this.setState({Redirection_Value : true})
-        })
+
+          console.log("Inside signup frontend")
+          this.setState({Redirection_Value : true})
        }
       })
   }
@@ -79,7 +70,7 @@ class SignUp extends React.Component {
     let Errors = null;
     if(this.state.Redirection_Value === true)
     {
-     Redirecty =  <Redirect to="/home" />
+     Redirecty =  <Redirect to="/useraccount" />
     }
       if(this.state.errors === true)
     {
@@ -103,7 +94,7 @@ class SignUp extends React.Component {
                     <h3 className="dark-grey-text mb-5">Account SignUp</h3>
                     <hr></hr>
                   </div>
-                  {/* <input type="text" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp" placeholder="User ID"  onChange={this.onUseridChange} required/> */}
+                  <input type="text" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp" placeholder="Name"  onChange={this.onUseridChange} required/>
                   <br>
                   {/* </br>
                   <input type="text" class="form-control" id="exampleInputSecondName" aria-describedby="emailHelp" placeholder="User Type"  onChange={this.onUserTypeChange} required/>

@@ -5,7 +5,10 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var mongoose = require('./src/resources/mongoose');
+var bcrypt = require('bcryptjs');
 var profile = require('./src/routes/profile')
+var payments = require('./src/routes/payments')
+var user = require('./src/routes/user')
 
 app.use(cors({ origin: 'http://localhost:3500', credentials: true }));
 app.use('/static',express.static(__dirname + 'public'));
@@ -45,6 +48,9 @@ app.use(function(req, res, next) {
 
 
 app.use('/', profile);
+app.use('/', payments)
+app.use('/', profile);
+app.use('/', user)
 
 app.listen(4004);
-console.log("Server listening on port 8000");
+console.log("Server listening on port 4004");
