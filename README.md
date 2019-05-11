@@ -1,5 +1,10 @@
 # Hate going premium? - Go Pay-Per-View 
+## Application Overview
 
+This project introduces a new concept called "Pay Per View" using the concept of micropayments. The idea is about instead of forcing a user to take a complete subscription of organization's or an application's premium services where user is only interested in subset of the services. Instead user will be charged only for the services he wants to consume.
+
+Extension to the current applications
+Earlier micro payments were not a rage because of transaction cost attached to it, which affets the organizations revenue or an individual. But after the introduction of Online wallet and crypto currency the concept of micropayments has become easy.
   
 ## Agile Core Values 
 [Amruta -> Feedback](https://github.com/mssrinivas/PayPerView/blob/master/XP%20Core%20Values/Feedback.md)  
@@ -25,16 +30,12 @@ https://github.com/mssrinivas/PayPerView/projects/1
 ![Screenshot from 2019-05-10 23-02-02](https://user-images.githubusercontent.com/42705784/57565759-10678400-7378-11e9-971c-be98052f88cb.png)
 
 
-## Application Overview
-
-
-
 ## Application Modules / Screens
 
-- [ ] Login / SignUp screen 
-- [ ] Landing Page / Service listing screen
-- [ ] Add to cart / Payments screen
-- [ ] User profile screen
+-  Login / SignUp screen 
+-  Landing Page / Service listing screen
+-  Add to cart / Payments screen
+-  User profile screen
 
 
 
