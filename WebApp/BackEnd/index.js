@@ -10,7 +10,7 @@ var profile = require('./src/routes/profile')
 var payments = require('./src/routes/payments')
 var user = require('./src/routes/user')
 
-app.use(cors({ origin: 'http://localhost:3500', credentials: true }));
+app.use(cors({ origin: 'http://payperview.herokuapp.com', credentials: true }));
 app.use('/static',express.static(__dirname + 'public'));
 //app.use(passport.initialize());
 
@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static',express.static('public'));
 
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3500');
+    res.setHeader('Access-Control-Allow-Origin', 'http://payperview.herokuapp.com');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
