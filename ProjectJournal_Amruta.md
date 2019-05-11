@@ -6,8 +6,10 @@ Week 1
 - Discussed all the screen flows and UI design 
 - Defined the business logic
 - Designed UI for Login and Sign up modules (Authentication)
+
+
 Week 2
-- Developed API for Loginaand Signup 
+- Developed API for Login and Signup 
 - Worked on integration, testing
 - Researched and deployed the application
 - Final testing for fixing bugs
