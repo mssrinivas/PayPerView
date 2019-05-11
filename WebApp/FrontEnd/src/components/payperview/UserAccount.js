@@ -35,7 +35,7 @@ class UserAccount extends Component {
           cardCode: '',
           expirationDate: '',
         },
-        cardBal: '',
+        cardBal: 0,
 	    }
   }
 
@@ -193,7 +193,7 @@ class UserAccount extends Component {
       this.setState({Languages: user.languages})
       this.setState({Contact: user.phone_number})
       this.setState({State: user.user_state})
-      this.setState({cardBal: user.cards.cardBal})
+      this.setState({cardBal: user.cards ? user.cards.cardBal: 0})
       this.setState({Redirection_Value : true})
       })
   }
@@ -223,7 +223,7 @@ class UserAccount extends Component {
       this.setState({Gender: user.gender})
       this.setState({Languages: user.language})
       this.setState({Contact: user.contact})
-      this.setState({cardBal: user.cards.cardBal})
+      this.setState({cardBal: user.cards ? user.cards.cardBal : 0})
       this.setState({Redirection_Value : true})
       })
 	}
