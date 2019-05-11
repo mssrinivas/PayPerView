@@ -19,7 +19,6 @@ class LandingPageView extends Component {
         this.state = {
             subscribed:false
         }
-
         this.subscribe = this.subscribe.bind(this)
     }
 

@@ -39,7 +39,7 @@ class SignUp extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch(BASE_URL+'/signup', {
+    fetch(BASE_URL+'/user/signup', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',
