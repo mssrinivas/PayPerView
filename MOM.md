@@ -33,3 +33,20 @@
         - Unit Testing
         - Merge different components 
         - Regression Testing
+
+## Meeting #3 - Discussion on Integration, Testing and Deployment
+
+#### Date: 05/05/2019
+#### Time: 3PM to 6PM
+#### Place: Zoom (Online)
+
+### Discussion:
+        - Review of implementation of each module and unit tests
+        - Discussion on integration of all modules and merging the code
+        - Discussion on regression testing
+        - Finalized on deployment platforms: Frontend on Heroku, Backend(containerized APIs) on AWS, mLab for mongoDB hosting
+  
+#### Future tasks:
+        - Regression Testing
+        - Deployment of integrated APIs
+        - Deployment of FrontEnd on Heroku
