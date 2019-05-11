@@ -29,7 +29,7 @@ class Login extends React.Component {
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',
       body: JSON.stringify({
-      username: this.state.signInEmail,
+      email: this.state.signInEmail,
       password: this.state.signInPassword
       })
     })

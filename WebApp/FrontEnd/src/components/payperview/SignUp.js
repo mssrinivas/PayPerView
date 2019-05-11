@@ -70,7 +70,7 @@ class SignUp extends React.Component {
     let Errors = null;
     if(this.state.Redirection_Value === true)
     {
-     Redirecty =  <Redirect to="/useraccount" />
+     Redirecty =  <Redirect to="/login" />
     }
       if(this.state.errors === true)
     {
