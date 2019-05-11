@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CruzCard from './Cards/card.js';
 import axios from 'axios';
 import './Jobs.css';
-
+import { BASE_URL } from '../constants';
 import CruzCardJobAmazon from './Cards/CruzCardJobAmazon';
 import CruzCardJobFacebook from  './Cards/CruzCardJobFacebook';
 import CruzCardJobLinkedIn from './Cards/CruzCardJobLinkedIn';
@@ -15,16 +15,14 @@ class Jobs extends Component {
     
     constructor(props){
         super(props);
-
         this.state = {
             subscribed:false
         }
-
         this.subscribe = this.subscribe.bind(this)
     }
 
     subscribe = (e)=>{
-        const url=""
+        const url=BASE_URL + '/Payments'
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;
@@ -67,17 +65,13 @@ class Jobs extends Component {
                             <a className="nav-link" style={{color:'black'}} href="/payperview/salary">Salary</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/Jobs">Jobs</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                        <form className="form-inline my-2 my-lg-0 mr-auto">
-                            <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-primary my-2 my-sm-0 ml-2" style={{fontSize:'18px'}} type="button">Search</button>
-                        </form>  
-                        <div>          
-                            <div id="navbarNavDropdown" class="navbar-collapse collapse">
-                                <ul class="navbar-nav mr-auto">
-                                {NAVLOGIN}
-                                </ul>
-                                </div>
-                                </div>
+                       
+                        <div className="padleftCompany">          
+                        <div  style={{display:'flex'}} >&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/useraccount">MyProfile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/login">LogOut</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>  
+                        </div>
                             </div>
                          </nav>
                                 <CruzCardJobNetflix paid={true}/> 
@@ -88,7 +82,7 @@ class Jobs extends Component {
                                 <CruzCardJobFacebook paid={true}/>
                                 <CruzCardJobGoogle paid={true}/>
                                 <CruzCardJobAmazon paid={true}/> 
-                                <CruzCardJobLinkedIn paid={true} onSubscribe={this.subscribe}/>
+                                <CruzCardJobLinkedIn paid={true}/>
                                 <CruzCardJobAmazon paid={true}/> 
                                 <CruzCardJobFacebook paid={true}/>
                                 <CruzCardJobNetflix paid={true}/> 

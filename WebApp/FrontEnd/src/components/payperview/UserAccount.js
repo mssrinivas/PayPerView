@@ -9,6 +9,10 @@ import { Button,
   Segment, Modal } from 'semantic-ui-react'
   import 'semantic-ui-css/semantic.min.css';
 
+
+  import { BASE_URL } from '../constants';
+
+
 class UserAccount extends Component {
 
 	 constructor(props) {
@@ -106,7 +110,7 @@ class UserAccount extends Component {
   }
 
   saveCard = () => {
-    var url= 'http://localhost:4004/user/addCard'
+    var url= BASE_URL+'/user/addCard'
     fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -129,7 +133,7 @@ class UserAccount extends Component {
 
   SubmitChanges = () => {
     
-    var url = 'http://localhost:4004/user/setProfile'
+    var url = BASE_URL+'/user/setProfile'
     console.log("POST URL " + url)
       fetch(url, {
       method: 'POST',
@@ -161,7 +165,7 @@ class UserAccount extends Component {
 
     componentDidMount() {
     console.log("PROPS VALUE IS " + this.props.value)
-    var url = 'http://localhost:4004/user/getProfile/' + localStorage.getItem("email")
+    var url = BASE_URL + '/user/getProfile/' + localStorage.getItem("email")
     console.log("URL IS " + url)
     fetch(url, {
       method: 'get',
@@ -191,7 +195,7 @@ class UserAccount extends Component {
 
 	componentWillMount() {
     console.log("PROPS VALUE IS " + this.props.value)
-    var url = 'http://localhost:4004/user/getProfile/' + localStorage.getItem("email")
+    var url = BASE_URL+'/user/getProfile/' + localStorage.getItem("email")
     console.log("URL IS " + url)
     fetch(url, {
       method: 'get',
@@ -226,10 +230,32 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
 	{
 		return (
       
-  <div class="accountinfo">
+  <div>
+   <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{borderBottom:'0.5px solid #BCBCBC'}}>
+                    <h1 style={{color:'#0CAA41'}}><b>glasswindow</b></h1>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div  style={{display:'flex'}} >&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/payperview/jobs">Jobs</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/payperview/companies">Companies</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/payperview/salary">Salary</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/payperview/interviews">Interviews</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>                    
+                        <div className="padleftCompany">          
+                        <div  style={{display:'flex'}} >&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/useraccount">MyProfile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/login">LogOut</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>  
+                                </div>
+                            </div>
+                         </nav>
   
 <div class="container shadowingcontainertraveller">
-  <h1 class="page-header">Profile information</h1>
+  <h1 class="page-header padleft">Profile information</h1>
+  <h2 class="page-header">Payment Details</h2>
   <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Card</button>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

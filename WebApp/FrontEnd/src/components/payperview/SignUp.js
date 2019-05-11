@@ -2,10 +2,10 @@ import React from 'react';
 import './SignUp.css';
 import { Container, Row, Col, Button, Fa, Card, CardBody, ModalFooter } from 'mdbreact';
 import {Redirect} from 'react-router-dom';
-
+import { BASE_URL } from '../constants';
 import jwtDecode from 'jwt-decode';
 
-const URL="http://localhost:4004/user"
+//const URL="http://localhost:4004/user"
 
 class SignUp extends React.Component {
 
@@ -39,7 +39,7 @@ class SignUp extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch(URL+'/signup', {
+    fetch(BASE_URL+'/signup', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',

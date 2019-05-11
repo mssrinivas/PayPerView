@@ -10,7 +10,7 @@ import axios from 'axios';
 // import './LandingPageView.css';
 
 
-
+import { BASE_URL } from '../constants';
 class LandingPageView extends Component {
     
     constructor(props){
@@ -24,7 +24,7 @@ class LandingPageView extends Component {
     }
 
     subscribe = (e)=>{
-        const url=""
+        const url=BASE_URL + '/Payments'
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;
@@ -67,17 +67,13 @@ class LandingPageView extends Component {
                             <a className="nav-link" style={{color:'black'}} href="/payperview/salary">Salary</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/interviews">Interviews</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                        <form className="form-inline my-2 my-lg-0 mr-auto">
-                            <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-primary my-2 my-sm-0 ml-2" style={{fontSize:'18px'}} type="button">Search</button>
-                        </form>  
+                        
                         <div>          
                             <div id="navbarNavDropdown" class="navbar-collapse collapse">
                                 <ul class="navbar-nav mr-auto">
                                 {NAVLOGIN}
                                 </ul>
-                                </div>
-                                
+                                </div>                              
                                 </div>
                             </div>
 

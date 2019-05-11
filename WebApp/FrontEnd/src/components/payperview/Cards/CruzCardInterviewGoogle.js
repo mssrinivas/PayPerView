@@ -29,7 +29,7 @@ class CruzCardInterviewGoogle extends Component {
         }else{
             //cName="col-md-10 mt-2 mb-2 info-row decipher";
             cName = "row pt-2 decipher"
-            button=<div className="row justify-content-center mb-2 mt-2"><button  className="btn btn-primary" onClick={this.subscription} style={{fontSize:'16px'}} data-toggle="tooltip" data-placement="right" title="Lets you subscribe this particular information">Subscribe</button></div>
+           // button=<div className="row justify-content-center mb-2 mt-2"><button  className="btn btn-primary" onClick={this.subscription} style={{fontSize:'16px'}} data-toggle="tooltip" data-placement="right" title="Lets you subscribe this particular information">Subscribe</button></div>
         }
 
         

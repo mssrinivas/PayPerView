@@ -4,6 +4,7 @@ import { Container, Row, Col, Button, Fa, Card, CardBody, ModalFooter } from 'md
 import {Redirect} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { decode } from 'punycode';
+import { BASE_URL } from '../constants';
 
 class Login extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Login extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:4004/user/login', {
+    fetch(BASE_URL+'/user/login', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',

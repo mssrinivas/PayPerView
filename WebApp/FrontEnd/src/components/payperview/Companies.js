@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CruzCard from './Cards/card.js';
 import axios from 'axios';
 import './Companies.css';
-
+import { BASE_URL } from '../constants';
 import CruzCardCompanyAmazon from './Cards/CruzCardCompanyAmazon';
 import CruzCardCompanyFacebook from './Cards/CruzCardCompanyFacebook';
 import CruzCardCompanyGoogle from './Cards/CruzCardCompanyGoogle';
@@ -28,7 +28,7 @@ class Companies extends Component {
 
     subscribe = (e)=>{
          console.log(e.target.value)
-        const url=""
+        const url=BASE_URL+'/Payments'
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;
@@ -47,10 +47,6 @@ class Companies extends Component {
             }
         })
     }
-
-
-
-
 
     render() { 
         let NAVLOGIN = (<li class="nav-item dropdown ">
@@ -92,9 +88,9 @@ let BUTTONFORNETFLIX="";
              <div class="modal-body">
              <form>
                <div class="form-group">
-                 <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                 <input type="radio" name="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
                  &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
-                 <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+                 <input type="radio" name="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
                  &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
                </div>
              </form>
@@ -126,9 +122,9 @@ let BUTTONFORNETFLIX="";
         <div class="modal-body">
         <form>
           <div class="form-group">
-            <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input type="radio" name="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
             &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
-            <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+            <input type="radio" name="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
             &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
           </div>
         </form>
@@ -160,9 +156,9 @@ let BUTTONFORNETFLIX="";
        <div class="modal-body">
        <form>
          <div class="form-group">
-           <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+           <input type="radio" name="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
            &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
-           <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+           <input type="radio" name="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
            &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
          </div>
        </form>
@@ -194,9 +190,9 @@ let BUTTONFORNETFLIX="";
         <div class="modal-body">
         <form>
           <div class="form-group">
-            <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input type="radio" name="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
             &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
-            <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+            <input type="radio" name="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
             &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
           </div>
         </form>
@@ -228,9 +224,9 @@ let BUTTONFORNETFLIX="";
          <div class="modal-body">
          <form>
            <div class="form-group">
-             <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+             <input type="radio" name="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
              &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
-             <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+             <input type="radio" name="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
              &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
            </div>
          </form>
@@ -259,17 +255,12 @@ let BUTTONFORNETFLIX="";
                             <a className="nav-link" style={{color:'black'}} href="/payperview/companies">Companies</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/salary">Salary</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a className="nav-link" style={{color:'black'}} href="/payperview/interviews">Interviews</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        </div>
-                        <form className="form-inline my-2 my-lg-0 mr-auto">
-                            <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-primary my-2 my-sm-0 ml-2" style={{fontSize:'18px'}} type="button">Search</button>
-                        </form>  
-                        <div>          
-                            <div id="navbarNavDropdown" class="navbar-collapse collapse">
-                                <ul class="navbar-nav mr-auto">
-                                {NAVLOGIN}
-                                </ul>
-                                </div>
+                        </div>                    
+                        <div className="padleftCompany">          
+                        <div  style={{display:'flex'}} >&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/useraccount">MyProfile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a className="nav-link" style={{color:'black'}} href="/login">LogOut</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>  
                                 </div>
                             </div>
                          </nav>

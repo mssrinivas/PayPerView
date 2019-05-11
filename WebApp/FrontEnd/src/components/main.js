@@ -17,7 +17,7 @@ class Main extends Component {
     render(){
         return(
             <Switch>
-                <Route exact path="/payperview" component={LandingPage}/>   
+                <Route exact path="/payperview" component={Jobs}/>   
                 <Route exact path="/login" component={Login} />   
                 <Route exact path="/signup" component={SignUp} />    
                 <Route exact path="/useraccount" component={UserAccount} />   
