@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import CruzCard from './card.js';
+import CruzCardJobGoogle from './Cards/CruzCardJobGoogle';
+import CruzCardJobAmazon from './Cards/CruzCardJobAmazon';
+import CruzCardJobFacebook from './Cards/CruzCardJobFacebook';
+import CruzCardJobNetFlix from './Cards/CruzCardJobNetflix';
+import CruzCardJobLinkedIn from './Cards/CruzCardJobLinkedIn'
 import axios from 'axios';
 import './LandingPageView.css';
+
 
 
 class LandingPageView extends Component {
@@ -75,7 +80,233 @@ class LandingPageView extends Component {
                                 </div>
                             </div>
                          </nav>
-                            <div className="row mt-3 mb-1 justify-content-center" >
+                           
+                                <CruzCardJobGoogle paid={true}/>
+                                <CruzCardJobGoogle paid={true} onSubscribe={this.subscribe}/>
+                                <CruzCardJobGoogle paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <div className="row mt-3 mb-1 justify-content-center" >
+                                <div className="col col-md-10">
+                                    <h2>Facebook</h2>
+                                        <div style={{display:'flex'}}>
+                                        
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
+                                                <Link to="#" className="card-link">Overview</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                         
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>40</p>
+                                                <Link to="#" className="card-link">Reviews</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>167</p>
+                                                <Link to="#" className="card-link">Jobs</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>223</p>
+                                                <Link to="#" className="card-link">Salaries</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>315</p>
+                                                <Link to="#" className="card-link">Interviews</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>69</p>
+                                                <Link to="#" className="card-link">Benefits</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>60</p>
+                                                <Link to="#" className="card-link">Photos</Link>
+                                                </div>
+                                                </div>
+                                            
+                                        
+                                        </div>
+                                        
+		</div>
+                                </div>
+                                <CruzCardJobFacebook paid={this.state.subscribed}/>
+                                <CruzCardJobFacebook paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardJobFacebook paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <div className="row mt-3 mb-1 justify-content-center" >
+                                <div className="col col-md-10">
+                                    <h2>Amazon</h2>
+                                        <div style={{display:'flex'}}>
+                                        
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
+                                                <Link to="#" className="card-link">Overview</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                         
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>40</p>
+                                                <Link to="#" className="card-link">Reviews</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>167</p>
+                                                <Link to="#" className="card-link">Jobs</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>223</p>
+                                                <Link to="#" className="card-link">Salaries</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>315</p>
+                                                <Link to="#" className="card-link">Interviews</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>69</p>
+                                                <Link to="#" className="card-link">Benefits</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>60</p>
+                                                <Link to="#" className="card-link">Photos</Link>
+                                                </div>
+                                                </div>
+                                            
+                                        
+                                        </div>
+                                        
+		</div>
+                                </div> 
+                                <CruzCardJobAmazon paid={true}/>
+                                <CruzCardJobAmazon paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardJobAmazon paid={this.state.subscribed} onSubscribe={this.subscribe}/>  
+                                <div className="row mt-3 mb-1 justify-content-center" >
+                                <div className="col col-md-10">
+                                    <h2>LinkedIn</h2>
+                                        <div style={{display:'flex'}}>
+                                        
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
+                                                <Link to="#" className="card-link">Overview</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                         
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>40</p>
+                                                <Link to="#" className="card-link">Reviews</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>167</p>
+                                                <Link to="#" className="card-link">Jobs</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>223</p>
+                                                <Link to="#" className="card-link">Salaries</Link>
+                                                </div>
+                                                </div>
+                                            
+                                            
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>315</p>
+                                                <Link to="#" className="card-link">Interviews</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>69</p>
+                                                <Link to="#" className="card-link">Benefits</Link>
+                                                </div>
+                                                </div>
+                                            
+
+                                            
+                                                <div className="card overview-border" style={{width: '10rem'}}>
+                                                <div className="card-body">
+                                                <p>60</p>
+                                                <Link to="#" className="card-link">Photos</Link>
+                                                </div>
+                                                </div>
+                                            
+                                        
+                                        </div>
+                                        
+		</div>
+                                </div>
+                                <CruzCardJobLinkedIn paid={true}/>
+                                <CruzCardJobLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardJobLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>  
+                                <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Netflix</h2>
                                         <div style={{display:'flex'}}>
@@ -146,21 +377,9 @@ class LandingPageView extends Component {
                                         
 		</div>
                                 </div>
-                                <div className="row mt-2 mb-2 justify-content-center">
-                                    <div className="col-md-10">
-                                        <h4>Candidate Reviews for Top Jobs at Netflix</h4>
-                                    </div>
-                                </div>
-
-                                
-
-                                <CruzCard paid={true}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-                                <CruzCard paid={this.state.subscribed} onSubscribe={this.subscribe}/>
-
-                                
-
-
+                                <CruzCardJobNetFlix paid={true}/>
+                                <CruzCardJobNetFlix paid={true} onSubscribe={this.subscribe}/>
+                                <CruzCardJobNetFlix paid={this.state.subscribed} onSubscribe={this.subscribe}/>  
                             </div>
 
 
