@@ -24,7 +24,7 @@ class UserAccount extends Component {
 	      CompanyName: '',
 	      StreetAddress: '',
 	      City : '',
-	      State : '',
+	      Hometown : '',
         Country: '',
         cards: {
           cardId: '',
@@ -93,6 +93,10 @@ class UserAccount extends Component {
     this.setState({"cards.expirationDate": event.target.value})
   }
 
+  onHometownChange = (event) => {
+    this.setState({"Hometown": event.target.value})
+  }
+
   saveCard = () => {
     var url= 'http://localhost:4004/user/addCard'
     fetch(url, {
@@ -125,15 +129,16 @@ class UserAccount extends Component {
       body: JSON.stringify({
         email: localStorage.getItem('email'),
         name: this.state.Name,
-        aboutme: this.state.AboutMe,
+        about_me: this.state.AboutMe,
         company: this.state.CompanyName,
         school: this.state.SchoolName,
-        hometown: this.state.City,
-        language : this.state.Languages,
+        hometown: this.state.Hometown,
+        city: this.state.City,
+        user_state: this.state.State,
+        languages : this.state.Languages,
         gender: this.state.Gender, 
-        state: this.state.State,
         country: this.state.Country,
-        contact: this.state.Contact,
+        phone_number: this.state.Contact,
         address: this.state.StreetAddress
       })
     })
@@ -156,19 +161,21 @@ class UserAccount extends Component {
     .then(response =>  response.json())
     .then(user => {
       console.log(user);
-      console.log(user[0].Name);
-      this.setState({Name: user[0].Name})
-      this.setState({PrimaryEmail: user[0].email})
-      this.setState({AboutMe : user[0].aboutme})
-      this.setState({CompanyName: user[0].company})
-      this.setState({SchoolName: user[0].school})
-      this.setState({StreetAddress: user[0].address})
-      this.setState({Country: user[0].country})
-      this.setState({City: user[0].hometown})
-      this.setState({State: user[0].state})
-      this.setState({Gender: user[0].gender})
-      this.setState({Languages: user[0].language})
-      this.setState({Contact: user[0].contact})
+      console.log(user.name);
+      this.setState({Name: user.name})
+      this.setState({PrimaryEmail: user.email})
+      this.setState({AboutMe : user.about_me})
+      this.setState({CompanyName: user.company})
+      this.setState({SchoolName: user.school})
+      this.setState({StreetAddress: user.address})
+      this.setState({Country: user.country})
+      this.setState({City: user.city})
+      this.setState({Hometown: user.hometown})
+      this.setState({State: user.user_state})
+      this.setState({Gender: user.gender})
+      this.setState({Languages: user.languages})
+      this.setState({Contact: user.phone_number})
+      this.setState({State: user.user_state})
       this.setState({Redirection_Value : true})
       })
   }
@@ -184,19 +191,20 @@ class UserAccount extends Component {
     .then(response =>  response.json())
     .then(user => {
       console.log(user);
-      console.log(user[0].name);
-      this.setState({Name: user[0].name})
-      this.setState({PrimaryEmail: user[0].email})
-      this.setState({AboutMe : user[0].aboutme})
-      this.setState({CompanyName: user[0].company})
-      this.setState({SchoolName: user[0].school})
-      this.setState({StreetAddress: user[0].address})
-      this.setState({Country: user[0].country})
-      this.setState({City: user[0].hometown})
-      this.setState({State: user[0].state})
-      this.setState({Gender: user[0].gender})
-      this.setState({Languages: user[0].language})
-      this.setState({Contact: user[0].contact})
+      console.log(user.name);
+      this.setState({Name: user.name})
+      this.setState({PrimaryEmail: user.email})
+      this.setState({AboutMe : user.aboutme})
+      this.setState({CompanyName: user.company})
+      this.setState({SchoolName: user.school})
+      this.setState({StreetAddress: user.address})
+      this.setState({Country: user.country})
+      this.setState({City: user.City})
+      this.setState({Hometown: user.hometown})
+      this.setState({State: user.state})
+      this.setState({Gender: user.gender})
+      this.setState({Languages: user.language})
+      this.setState({Contact: user.contact})
       this.setState({Redirection_Value : true})
       })
 	}
@@ -297,7 +305,7 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
             <div class="row">
                <div class="col-md-3 mb-3">
                 <label for="zip">Hometown</label>
-                <input type="text" class="form-control form-control-lg" id="zip" placeholder="" required="" value={this.state.City} onChange={this.onCityChange} />
+                <input type="text" class="form-control form-control-lg" id="zip" placeholder="" required="" value={this.state.Hometown} onChange={this.onHometownChange} />
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -329,6 +337,13 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
               <div class="col-md-3 mb-3">
                 <label for="zip">City</label>
                 <input type="text" class="form-control form-control-lg" id="zip"  onChange={this.onCityChange} value={this.state.City} placeholder="" required="" />
+                <div class="invalid-feedback">
+                  Enter correct value
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">State</label>
+                <input type="text" class="form-control form-control-lg" id="zip"  onChange={this.onStateChange} value={this.state.State} placeholder="" required="" />
                 <div class="invalid-feedback">
                   Enter correct value
                 </div>

@@ -14,6 +14,8 @@ var UsersSchema = new Schema({
     hometown : String,
     languages : String,
     gender : String,
+    address: String,
+    user_state: String,
     cards: {
         card_id: Number,
         card_code: Number,
