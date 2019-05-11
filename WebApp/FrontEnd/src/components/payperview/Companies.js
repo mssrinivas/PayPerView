@@ -15,29 +15,44 @@ class Companies extends Component {
     
     constructor(props){
         super(props);
-
         this.state = {
-            subscribed:false
+            subscribedtoGoogle:false,
+            subscribedtoFacebook:false,
+            subscribedtoAmazon:true,
+            subscribedtoNetflix:true,
+            subscribedtoLinkedIn:false
         }
 
         this.subscribe = this.subscribe.bind(this)
     }
 
     subscribe = (e)=>{
+         console.log(e.target.value)
         const url=""
         axios.post(url).then((response)=>{
             if(response.status===200){
                 const balance = response.data.balance;
-                alert("We successfully received your payment. Your balance is "+balance+" HBR")
-                this.setState({subscribed:true})
-            }else{
-                alert("Hedera couldn't process your payment")
+                if(e.target.value === "Google")
+                    this.setState({subscribedtoGoogle:true})
+                else if(e.target.value === "Facebook")
+                    this.setState({subscribedtoFacebook:true})
+                else if(e.target.value === "LinkedIn")
+                     this.setState({subscribedtoLinkedIn:true})
+                else if(e.target.value === "Netflix")
+                    this.setState({subscribedtoNetflix:true})
+                else if(e.target.value === "Amazon")
+                    this.setState({subscribedtoAmazon:true})
+            }else{this.setState({subscribed:true})
+                alert("Payment Unsuccessful")
             }
         })
     }
 
-    render() { 
 
+
+
+
+    render() { 
         let NAVLOGIN = (<li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle lower backwhite" href="Dashboard" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {"My Account"}
@@ -50,7 +65,185 @@ class Companies extends Component {
             <a class="dropdown-item" onClick={this.handleLogout} href="/" >Logout</a>
         </div>
 </li>)
-        
+
+
+let BUTTONFORGOOGLE="";
+let BUTTONFORFACEBOOK="";
+let BUTTONFORAMAZON="";
+let BUTTONFORLINKEDIN="";
+let BUTTONFORNETFLIX="";
+
+
+    if(this.state.subscribedtoGoogle===false)
+    {
+         BUTTONFORGOOGLE=
+         <div>
+             <div className="row justify-content-center mb-2 mt-2">
+             <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Google">View</button></div>
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Payment Section</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+             <form>
+               <div class="form-group">
+                 <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                 &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
+                 <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+                 &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
+               </div>
+             </form>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary" onClick={this.subscribe} data-dismiss="modal">Pay</button>
+             </div>
+           </div>
+         </div>
+         </div>  
+         </div>
+    }
+    if(this.state.subscribedtoFacebook===false)
+    {
+        BUTTONFORFACEBOOK=
+        <div>
+        <div className="row justify-content-center mb-2 mt-2">
+        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Facebook">View</button></div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Payment Section</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
+            <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+            &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onClick={this.subscribe} data-dismiss="modal">Pay</button>
+        </div>
+      </div>
+    </div>
+    </div>  
+    </div>
+    }
+    if(this.state.subscribedtoAmazon===false)    
+    {
+       BUTTONFORAMAZON=
+       <div>
+       <div className="row justify-content-center mb-2 mt-2">
+       <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Amazon">View</button></div>
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Payment Section</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+       <form>
+         <div class="form-group">
+           <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+           &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
+           <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+           &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
+         </div>
+       </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary" onClick={this.subscribe} data-dismiss="modal">Pay</button>
+       </div>
+     </div>
+   </div>
+   </div>  
+   </div>
+    }
+    if(this.state.subscribedtoLinkedIn===false)
+    {
+        BUTTONFORLINKEDIN=
+        <div>
+        <div className="row justify-content-center mb-2 mt-2">
+        <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="LinkedIn">View</button></div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Payment Section</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
+            <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+            &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onClick={this.subscribe} data-dismiss="modal">Pay</button>
+        </div>
+      </div>
+    </div>
+    </div>  
+    </div>
+    }
+    if(this.state.subscribedtoNetflix===false)
+    {
+         BUTTONFORNETFLIX=
+         <div>
+         <div className="row justify-content-center mb-2 mt-2">
+         <button  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Netflix">View</button></div>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Payment Section</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+         <form>
+           <div class="form-group">
+             <input type="radio" className="test" id="exampleInputEmail1" aria-describedby="emailHelp" />
+             &nbsp;&nbsp;<label for="exampleInputEmail1">Debit / Credit Card</label><br></br>
+             <input type="radio" className="test" id="exampleInputEmail2" placeholder="CVV" maxLength="3" />
+             &nbsp;&nbsp;<label for="exampleInputEmail2">Online Wallet</label>
+           </div>
+         </form>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary" onClick={this.subscribe} data-dismiss="modal">Pay</button>
+         </div>
+       </div>
+     </div>
+     </div>  
+     </div>
+    }
 
         return (
             <div>
@@ -85,7 +278,6 @@ class Companies extends Component {
                                 <div className="col col-md-10">
                                     <h2>Google</h2>
                                         <div style={{display:'flex'}}>
-                                        
                                                 <div className="card overview-border" style={{width: '10rem'}}>
                                                 <div className="card-body">
                                                 <img className="contain" src="https://img.icons8.com/wired/64/2ecc71/overview-pages-2.png" style={{width:'50%'}} alt="overview" />
@@ -153,8 +345,10 @@ class Companies extends Component {
 		</div>
                                 </div>
 
-                           
-                                <CruzCardCompanyGoogle paid={true}/>
+                     
+                                <CruzCardCompanyGoogle paid={this.state.subscribedtoGoogle} value="google"/>
+                                {BUTTONFORGOOGLE}                     
+
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Facebook</h2>
@@ -226,7 +420,8 @@ class Companies extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardCompanyFacebook paid={this.state.subscribed}/>
+                                <CruzCardCompanyFacebook paid={this.state.subscribedtoFacebook}/>
+                                {BUTTONFORFACEBOOK}
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Amazon</h2>
@@ -298,7 +493,8 @@ class Companies extends Component {
                                         
 		</div>
                                 </div> 
-                                <CruzCardCompanyAmazon paid={true}/> 
+                                <CruzCardCompanyAmazon paid={this.state.subscribedtoAmazon}/> 
+                                {BUTTONFORAMAZON}
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>LinkedIn</h2>
@@ -370,7 +566,8 @@ class Companies extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardCompanyLinkedIn paid={this.state.subscribed} onSubscribe={this.subscribe}/>
+                                <CruzCardCompanyLinkedIn paid={this.state.subscribedtoLinkedIn} onSubscribe={this.subscribe}/>
+                                {BUTTONFORLINKEDIN}
                                 <div className="row mt-3 mb-1 justify-content-center" >
                                 <div className="col col-md-10">
                                     <h2>Netflix</h2>
@@ -442,7 +639,8 @@ class Companies extends Component {
                                         
 		</div>
                                 </div>
-                                <CruzCardCompanyNetflix paid={true}/> 
+                                <CruzCardCompanyNetflix paid={this.state.subscribedtoNetflix}/> 
+                                {BUTTONFORNETFLIX}                             
                             </div>
 
 
