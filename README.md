@@ -26,8 +26,12 @@ https://github.com/mssrinivas/PayPerView/projects/1
 ## Scrum Task Board and Burndown Chart
 [Scrum Board](https://docs.google.com/spreadsheets/d/1offNMxuuoS-hDteZ4yqdi-BdiLFaN1DewzrwTQoaQ8E/edit?ts=5cd26a3c#gid=0)
 
-## Architectural Overview ()
+## Architectural Overview
 ![Screenshot from 2019-05-10 23-02-02](https://user-images.githubusercontent.com/42705784/57565759-10678400-7378-11e9-971c-be98052f88cb.png)
+
+## Deployment Diagram
+
+![Alt text](payperview_deployment.png?raw=true "Deployment Diagram")
 
 ## Application Modules / Screens
 
