@@ -4,11 +4,11 @@ var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 var Users = require('../models/users');
 
-router.get('/api/getProfile/:email', urlencodedParser, function(req, res){
+router.get('/user/getProfile/:email', urlencodedParser, function(req, res){
     
     console.log("Get Profile API")
     console.log(req.params.email);
-    var user_id = req.params.email;
+    var email = req.params.email;
     Users.findOne({email: email}, function(err,user){
         if (err) {
             res.code = "400";
@@ -21,11 +21,12 @@ router.get('/api/getProfile/:email', urlencodedParser, function(req, res){
     })
 })
 
-router.post('/api/setProfile/', urlencodedParser, function(req, res){
+router.post('/user/setProfile', urlencodedParser, function(req, res){
     
     //console.log("Set Profile API" + req.body.user_id +  req.body.email + req.body.phone_number + req.body.about_me +  req.body.city +  req.body.company +  req.body.school+  req.body.country+  req.body.hometown+  req.body.languages+  req.body.gender)
-    console.log(req.body.phone_number)
-    var user_id = req.body.email;
+    console.log("In set profile")
+    console.log(req.body)
+    var email = req.body.email;
 
     if(req.body.phone_number==null) {
         req.body.phone_number=0;
@@ -56,12 +57,12 @@ router.post('/api/setProfile/', urlencodedParser, function(req, res){
     })
 })
 
-router.post('/api/addCard', urlencodedParser, function(req, res){
-   
+router.post('/user/addCard', urlencodedParser, function(req, res){
+    console.log("In add card");
     var email = req.body.email;
     var cardId = parseInt(req.body.cardId);
     var code = parseInt(req.body.cardCode);
-    var expDate = req.body.expiration_date;
+    var expDate = req.body.expirationDate;
     Users.update({
         email: email
     }, {$set: {cards: {

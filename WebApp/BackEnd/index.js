@@ -7,7 +7,7 @@ var cors = require('cors');
 var mongoose = require('./src/resources/mongoose');
 var profile = require('./src/routes/profile')
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'http://localhost:3500', credentials: true }));
 app.use('/static',express.static(__dirname + 'public'));
 //app.use(passport.initialize());
 
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static',express.static('public'));
 
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3500');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
@@ -46,5 +46,5 @@ app.use(function(req, res, next) {
 
 app.use('/', profile);
 
-app.listen(8000);
+app.listen(4004);
 console.log("Server listening on port 8000");

@@ -6,7 +6,7 @@ import { Button,
   Dropdown,
   Header,
   Message,
-  Segment } from 'semantic-ui-react'
+  Segment, Modal } from 'semantic-ui-react'
   import 'semantic-ui-css/semantic.min.css';
 
 class UserAccount extends Component {
@@ -14,8 +14,7 @@ class UserAccount extends Component {
 	 constructor(props) {
 	    super(props);
 	    this.state = {
-	      FirstName: '',
-	      LastName: '',
+	      Name: '',
 	      PrimaryEmail: '',
         Contact: '',
         Gender: '',
@@ -26,16 +25,17 @@ class UserAccount extends Component {
 	      StreetAddress: '',
 	      City : '',
 	      State : '',
-	      Country: ''
+        Country: '',
+        cards: {
+          cardId: '',
+          cardCode: '',
+          expirationDate: '',
+        },
 	    }
   }
 
-  	onFirstNameChange = (event) => {
-  		this.setState({FirstName: event.target.value})
-  	}
-
-  	onLastNameChange = (event) => {
-  		this.setState({LastName: event.target.value})
+  	onNameChange = (event) => {
+  		this.setState({Name: event.target.value})
   	}
 
   	onPrimaryEmailChange = (event) => {
@@ -81,16 +81,50 @@ class UserAccount extends Component {
     this.setState({AboutMe: event.target.value})
   }
 
-  SubmitChanges = () => {
-    var url = 'http://localhost:4004/editprofile/save/' + localStorage.getItem("usernamey")
-    console.log("PUT URL " + url)
-      fetch(url, {
-      method: 'put',
+  onCardIdChange = (event) => {
+    this.setState({"cards.cardId": event.target.value})
+  }
+
+  onCardCodeChange = (event) => {
+    this.setState({"cards.cardCode": event.target.value})
+  }
+
+  onExpDateChange = (event) => {
+    this.setState({"cards.expirationDate": event.target.value})
+  }
+
+  saveCard = () => {
+    var url= 'http://localhost:4004/user/addCard'
+    fetch(url, {
+      method: 'POST',
       headers: {'Content-Type': 'application/json'},
       credentials : 'include',
       body: JSON.stringify({
-        firstname: this.state.FirstName,
-        lastname: this.state.LastName,
+       email: localStorage.getItem('email'),
+       carId: this.state.carId,
+       cardCode: this.state.cardCode,
+       expirationDate: this.state.expirationDate,
+      })
+    })
+    .then(response =>  response.json())
+    .then(card => {
+      console.log("NAME" + card)
+          this.props.loadUser(card);
+         this.setState({Redirection_Value : true})
+      })
+  }
+
+  SubmitChanges = () => {
+    
+    var url = 'http://localhost:4004/user/setProfile'
+    console.log("POST URL " + url)
+      fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials : 'include',
+      body: JSON.stringify({
+        email: localStorage.getItem('email'),
+        name: this.state.Name,
         aboutme: this.state.AboutMe,
         company: this.state.CompanyName,
         school: this.state.SchoolName,
@@ -113,7 +147,7 @@ class UserAccount extends Component {
 
     componentDidMount() {
     console.log("PROPS VALUE IS " + this.props.value)
-    var url = 'http://localhost:4004/user/account/' + localStorage.getItem("usernamey")
+    var url = 'http://localhost:4004/user/getProfile/' + localStorage.getItem("email")
     console.log("URL IS " + url)
     fetch(url, {
       method: 'get',
@@ -122,9 +156,8 @@ class UserAccount extends Component {
     .then(response =>  response.json())
     .then(user => {
       console.log(user);
-      console.log(user[0].firstname);
-      this.setState({FirstName: user[0].firstname})
-      this.setState({LastName: user[0].lastname})
+      console.log(user[0].Name);
+      this.setState({Name: user[0].Name})
       this.setState({PrimaryEmail: user[0].email})
       this.setState({AboutMe : user[0].aboutme})
       this.setState({CompanyName: user[0].company})
@@ -142,7 +175,7 @@ class UserAccount extends Component {
 
 	componentWillMount() {
     console.log("PROPS VALUE IS " + this.props.value)
-    var url = 'http://localhost:4004/user/account/' + localStorage.getItem("usernamey")
+    var url = 'http://localhost:4004/user/getProfile/' + localStorage.getItem("email")
     console.log("URL IS " + url)
     fetch(url, {
       method: 'get',
@@ -151,9 +184,8 @@ class UserAccount extends Component {
     .then(response =>  response.json())
     .then(user => {
       console.log(user);
-      console.log(user[0].firstname);
-      this.setState({FirstName: user[0].firstname})
-      this.setState({LastName: user[0].lastname})
+      console.log(user[0].name);
+      this.setState({Name: user[0].name})
       this.setState({PrimaryEmail: user[0].email})
       this.setState({AboutMe : user[0].aboutme})
       this.setState({CompanyName: user[0].company})
@@ -179,14 +211,42 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
   <div class="accountinfo">
 <div class="container shadowingcontainertraveller">
   <h1 class="page-header">Profile information</h1>
-  <div class="row">
-    <div class="col-md-12 col-sm-6 col-xs-12">
-      <div class="text-center">
-        <img src="https://media.licdn.com/dms/image/C5103AQHzkRC2Vk8gwg/profile-displayphoto-shrink_200_200/0?e=1542844800&v=beta&t=e_vwRp7Hpmpt_BXdrZZI2lwXdWYx1KU1ROyOx8B52CE" class="avatar img-circle img-thumbnail" alt="avatar" />
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block well well-sm" />
+  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Card</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Card Number</label>
+          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Card Number" maxLength="9" onChange={this.onCardIdChange}/>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your card details with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Card Code</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="CVV" maxLength="3" onChange={this.onCardCodeChange}/>
+        </div>
+        <div class="form-group">
+          <label for="date">Expiration Date</label>
+          <input type="date" class="form-control" id="date" placeholder="Expiration Date" onChange={this.onExpDateChange}/>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onClick={this.saveCard} data-dismiss="modal">Save Card</button>
       </div>
     </div>
+  </div>
+</div>
+  <div class="row">
+    
     </div>
       <div class="col-md-12 col-sm-8 col-xs-12 forum">
           <h4 class="mb-3"></h4>
@@ -194,19 +254,13 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control form-control-lg" id="firstName" placeholder="" value={this.state.FirstName} required="" disabled onChange={this.onFirstNameChange}/>
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control form-control-lg" id="firstName" placeholder="" value={this.state.Name} required="" disabled onChange={this.onNameChange}/>
                 <div class="invalid-feedback">
-                  Valid first name is required.
+                  Valid Name is required.
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control form-control-lg" id="lastName" placeholder="" value={this.state.LastName} required="" disabled onChange={this.onLastNameChange}/>
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-              </div>
+              
             </div>
 
             <div class="mb-3">
