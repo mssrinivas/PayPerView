@@ -35,6 +35,7 @@ class UserAccount extends Component {
           cardCode: '',
           expirationDate: '',
         },
+        cardBal: '',
 	    }
   }
 
@@ -120,13 +121,15 @@ class UserAccount extends Component {
        cardId: this.state.cards.cardId,
        cardCode: this.state.cards.cardCode,
        expirationDate: this.state.cards.expirationDate,
+       cardBal: 100
       })
       
     })
     .then(response =>  response.json())
     .then(card => {
       console.log("NAME" + card)
-          this.props.loadUser(card);
+          // this.props.loadUser(card);
+          window.location.reload();
          this.setState({Redirection_Value : true})
       })
   }
@@ -158,7 +161,8 @@ class UserAccount extends Component {
     .then(response =>  response.json())
     .then(user => {
       console.log("NAME" + user)
-          this.props.loadUser(user);
+          // this.props.loadUser(user);
+          window.location.reload();
          this.setState({Redirection_Value : true})
       })
   }
@@ -189,6 +193,7 @@ class UserAccount extends Component {
       this.setState({Languages: user.languages})
       this.setState({Contact: user.phone_number})
       this.setState({State: user.user_state})
+      this.setState({cardBal: user.cards.cardBal})
       this.setState({Redirection_Value : true})
       })
   }
@@ -218,6 +223,7 @@ class UserAccount extends Component {
       this.setState({Gender: user.gender})
       this.setState({Languages: user.language})
       this.setState({Contact: user.contact})
+      this.setState({cardBal: user.cards.cardBal})
       this.setState({Redirection_Value : true})
       })
 	}
@@ -304,6 +310,10 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
                 <div class="invalid-feedback">
                   Valid Name is required.
                 </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Card Balance</label>
+                <input type="text" class="form-control form-control-lg" id="firstName" placeholder="" value={this.state.cardBal} required="" disabled/>
               </div>
               
             </div>
@@ -393,7 +403,7 @@ Profile Image, Name, Email, Phone Number, About Me,City, Country, Company, Schoo
                 </div>
               </div>
             </div>
-            <button class="bluebutton btn btn-lg btn-block whitefont"  onClick= {this.SubmitChanges} type="submit">Save Changes</button>
+            <button class="bluebutton btn btn-lg btn-block whitefont"  onClick= {this.SubmitChanges} type="button">Save Changes</button>
           </form>
           </section>
       </div>

@@ -19,7 +19,8 @@ var UsersSchema = new Schema({
     cards: {
         card_id: Number,
         card_code: Number,
-        expiration_date: Date
+        expiration_date: Date,
+        cardBal: Number,
     }
 })
 
