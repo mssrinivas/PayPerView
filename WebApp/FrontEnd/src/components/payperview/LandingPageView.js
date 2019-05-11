@@ -23,16 +23,42 @@ class LandingPageView extends Component {
     }
 
     subscribe = (e)=>{
-        const url=BASE_URL + '/user/Payments'
-        axios.post(url).then((response)=>{
+        console.log(e.target.value)
+        const url=BASE_URL+'/user/Payments/'
+        fetch(url, {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            credentials : 'include',
+            body: JSON.stringify({
+                email : window.localStorage.getItem("email"),
+                amt_to_be_deducted : 0.5
+            })
+          })
+          .then(response => {
+            console.log(response)
             if(response.status===200){
-                const balance = response.data.balance;
-                alert("We successfully received your payment. Your balance is "+balance+" HBR")
-                this.setState({subscribed:true})
+                //const balance = response.data.balance;
+                var company = window.localStorage.getItem("CurrentCompany")
+                if(company=== "Google")
+                    this.setState({subscribedtoGoogle:true})
+                else if(company === "Facebook")
+                    this.setState({subscribedtoFacebook:true})
+                else if(company === "LinkedIn")
+                     this.setState({subscribedtoLinkedIn:true})
+                else if(company === "Netflix")
+                    this.setState({subscribedtoNetflix:true})
+                else if(company === "Amazon")
+                    this.setState({subscribedtoAmazon:true})
             }else{
-                alert("Hedera couldn't process your payment")
+                alert("Payment Unsuccessful")
             }
         })
+    }
+
+    CaptureCompany = (e) => 
+    {
+        console.log("VALUE oF Current COmpany", e.target.value)
+        window.localStorage.setItem("CurrentCompany",e.target.value)
     }
 
     render() { 

@@ -4,18 +4,14 @@ var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 var Payments = require('../models/payments');
 
-router.post('/user/Payments', urlencodedParser,async function(req, res){
+router.post('/user/Payments/', urlencodedParser,async function(req, res){
     console.log("Came here")
-    var user_id = req.body.user_id;
-    console.log(req.body.email)
+    var user_id = req.body.email;
+    console.log(user_id)
     console.log('in paymnets')
-
-    var card_bal1 = await  Payments.findOne({email:  req.body.email}, {_id: 0, card_bal: 1});
-
+    var card_bal1 = await Payments.findOne({email: req.body.email}, {_id: 0, card_bal: 1});
     console.log("card bal ",card_bal1)
-
     var cardbalance=card_bal1.card_bal
-
 
     try{
     let {paymentResponse}= await Payments.update(
