@@ -50,3 +50,20 @@
         - Regression Testing
         - Deployment of integrated APIs
         - Deployment of FrontEnd on Heroku
+
+
+## Meeting #4 - Discussion on Deployment and testing the deployed components
+
+#### Date: 10/05/2019
+#### Time: 6PM to 9PM
+#### Place: Zoom (Online)
+
+### Discussion:
+        - Review of tests
+        - Deployment on Heroku and AWS 
+        - Setting up of load balancers for avoiding single point of failure
+        - Testing the deployed components
+  
+#### Future tasks:
+        - Creating a presentation
+        - Updating the documentation
